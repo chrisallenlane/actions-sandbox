@@ -1,5 +1,6 @@
+---
 name: Publish packages
-on: [ push ]
+on: [push]
 
 jobs:
 
@@ -15,7 +16,7 @@ jobs:
 
       # run the linter
       - name: lint
-        run: echo 'TODO: run the linter'
+        run: echo 'TODO - run the linter'
 
       # compile the Go application
       - name: compile
