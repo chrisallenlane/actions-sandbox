@@ -20,4 +20,4 @@ jobs:
 
       # compile the Go application
       - name: compile
-        run: cd src/go && make
+        run: make
