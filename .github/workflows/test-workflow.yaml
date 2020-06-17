@@ -1,28 +1,22 @@
-name: Greet Everyone
-
-# This workflow is triggered on pushes to the repository.
-on: [push]
+name: Publish packages
+on: [ push ]
 
 jobs:
+
   build:
-
-    # Job name is Greeting
-    name: Greeting
-
-    # This job runs on Linux
+    name: Build
     runs-on: ubuntu-latest
+
     steps:
 
-      - name: Checkout
+      # check out the repository source
+      - name: checkout
         uses: actions/checkout@v2
 
-      # This step uses GitHub's hello-world-javascript-action: https://github.com/actions/hello-world-javascript-action
-      - name: Hello world
-        uses: actions/hello-world-javascript-action@v1
-        with:
-          who-to-greet: 'Mona the Octocat'
-        id: hello
+      # run the linter
+      - name: lint
+        run: echo 'TODO: run the linter'
 
-      # This step prints an output (time) from the previous step's action.
-      - name: Echo the greeting's time
-        run: echo 'The time was ${{ steps.hello.outputs.time }}.'
+      # compile the Go application
+      - name: compile
+        run: cd src/go && make
